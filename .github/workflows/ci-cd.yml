@@ -40,7 +40,6 @@ jobs:
       - name: Run Backend Tests
         working-directory: ./backend
         run: npm test || echo "No tests yet"
-
       # -----------------
       # Frontend
       # -----------------
