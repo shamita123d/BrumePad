@@ -1,7 +1,19 @@
 FROM node:20
+
+# Install Java (JDK)
+RUN apt-get update && apt-get install -y default-jdk
+
 WORKDIR /app
+
+# Copy package files and install dependencies
 COPY ./backend/package*.json ./
 RUN npm install
+
+# Copy the backend code
 COPY ./backend /app
+
+# Expose backend port
 EXPOSE 5000
+
+# Start the backend
 CMD ["npm", "run", "dev"]

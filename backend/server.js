@@ -44,7 +44,7 @@ app.use('/api/code', require('./routes/codeRoutes'));
 // Start Server
 // ----------------------
 const server = app.listen(PORT, () => {
-    console.log(`Backend running on port ${PORT}`);
+    console.log(`🚀Backend running on port ${PORT}`);
 });
 
 // ----------------------

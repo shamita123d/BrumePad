@@ -9,9 +9,14 @@ function setupWebSocket(server){
         clients.push(ws);
 
         ws.on('message', message => {
+            // Parse JSON message
+            let data;
+            try { data = JSON.parse(message); } catch { return; }
+
+            // Broadcast to all clients except sender
             clients.forEach(client => {
                 if(client !== ws && client.readyState === WebSocket.OPEN){
-                    client.send(message);
+                    client.send(JSON.stringify(data));
                 }
             });
         });
